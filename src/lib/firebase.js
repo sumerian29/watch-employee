@@ -1,0 +1,15 @@
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB788iXvO8kUMg7ckbQ_YufEN4geNHdpyQ",
+  authDomain: "watch-employee.firebaseapp.com",
+  projectId: "watch-employee",
+  storageBucket: "watch-employee.firebasestorage.app",
+  messagingSenderId: "44863525518",
+  appId: "1:44863525518:web:8e8dda075ed42893c8efdf"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
