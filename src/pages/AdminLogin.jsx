@@ -8,7 +8,7 @@ export default function AdminLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const adminPassword = 'admin456'; // ⭐ غيّر هذه
+    const adminPassword = 'admin456'; // غيرها حسب رغبتك
     if (password === adminPassword) {
       sessionStorage.setItem('adminAuth', 'true');
       navigate('/admin');
