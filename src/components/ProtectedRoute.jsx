@@ -1,7 +1,6 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom'
 
-export default function ProtectedRoute({ children, storageKey = 'isAuthenticated', redirectTo = '/employee-login' }) {
-  const isAuthenticated = sessionStorage.getItem(storageKey) === 'true';
-  return isAuthenticated ? children : <Navigate to={redirectTo} replace />;
+export default function ProtectedRoute({ children, storageKey, redirectTo }) {
+  const isAuth = sessionStorage.getItem(storageKey) === 'true'
+  return isAuth ? children : <Navigate to={redirectTo} replace />
 }
