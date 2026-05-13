@@ -56,6 +56,7 @@ export default function Dashboard() {
               <th className="p-4">الأولوية</th>
               <th className="p-4">عاجلة؟</th>
               <th className="p-4">التفاصيل</th>
+              <th className="p-4">تاريخ ووقت الإرسال</th>
               <th className="p-4">حذف</th>
             </tr>
           </thead>
@@ -71,6 +72,11 @@ export default function Dashboard() {
                 <td className="p-4">{report.isUrgent ? "نعم" : "لا"}</td>
                 <td className="p-4 max-w-md">{report.details}</td>
                 <td className="p-4">
+                  {report.createdAt 
+                    ? new Date(report.createdAt.toDate()).toLocaleString('ar-IQ') 
+                    : "غير محدد"}
+                </td>
+                <td className="p-4">
                   <button onClick={() => handleDelete(report.id)} className="bg-red-600 text-white px-3 py-1 rounded">✖</button>
                 </td>
               </tr>
@@ -79,7 +85,6 @@ export default function Dashboard() {
         </table>
       </div>
 
-      {/* التذييل الأسود السميك */}
       <div className="text-center font-bold text-black text-sm border-t pt-4 mt-8">
         تصميم وتطوير الواجهة : رئيس مهندسين أقدم طارق مجيد عبد محمود
       </div>
