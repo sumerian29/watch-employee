@@ -34,14 +34,12 @@ export default function Dashboard() {
 
   return (
     <>
-      {/* تشغيل الموسيقى تلقائياً بعد تسجيل دخول المسؤول */}
       <AudioPlayer src="/background-music.mp3" autoPlay={true} loop={true} volume={0.3} />
-
       <div dir="rtl" className="min-h-screen bg-slate-100 p-8 flex flex-col">
         <div className="flex justify-between items-center mb-6 flex-wrap">
           <div className="flex items-center gap-4">
             <img src="/logo.png" alt="Thi Qar Oil Company" className="w-16 h-16 object-contain bg-white rounded-full p-1 shadow" />
-            <h1 className="text-3xl font-bold text-blue-900">لوحة مسؤول الجودة - التقارير اليومية</h1>
+            <h1 className="text-3xl font-bold text-blue-900">لوحة مسؤول الجودة - التقارير الأسبوعية</h1>
           </div>
           <div className="flex gap-2 mt-2 sm:mt-0">
             <button onClick={handlePrint} className="bg-green-700 text-white px-4 py-2 rounded-lg">🖨️ طباعة</button>

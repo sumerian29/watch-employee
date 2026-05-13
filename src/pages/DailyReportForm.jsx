@@ -59,9 +59,7 @@ export default function DailyReportForm() {
 
   return (
     <>
-      {/* تشغيل الموسيقى تلقائياً بعد تسجيل الدخول */}
       <AudioPlayer src="/background-music.mp3" autoPlay={true} loop={true} volume={0.3} />
-
       <div className="min-h-screen bg-slate-200 p-6 flex flex-col">
         <div className="max-w-5xl mx-auto w-full">
           <Card className="shadow-2xl border-0 rounded-3xl overflow-hidden">
@@ -70,11 +68,13 @@ export default function DailyReportForm() {
                 <div className="flex items-center gap-4">
                   <img src="/logo.png" alt="Thi Qar Oil Company" className="w-20 h-20 object-contain bg-white rounded-full p-1 shadow-lg" />
                   <div>
-                    <CardTitle className="text-3xl font-black mb-2">نظام متابعة الأداء اليومي</CardTitle>
+                    <CardTitle className="text-3xl font-black mb-2">نظام متابعة الأداء الأسبوعي</CardTitle>
                     <p className="text-slate-200 text-sm">مرحباً {employeeName} (رقم {employeeId})</p>
                   </div>
                 </div>
-                <Badge className="bg-white text-blue-900 text-sm px-4 py-1">ISRM Advanced</Badge>
+                <Badge className="bg-white text-blue-900 text-sm px-4 py-1">
+                  Integrated Safety & Risk Management - Advanced
+                </Badge>
               </div>
             </CardHeader>
             <CardContent className="p-8">
@@ -87,11 +87,11 @@ export default function DailyReportForm() {
                 </div>
                 <div className="space-y-2">
                   <Label>عنوان المهمة</Label>
-                  <Input placeholder="عنوان المهمة اليومية" value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)} />
+                  <Input placeholder="عنوان المهمة الأسبوعية" value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)} />
                 </div>
                 <div className="space-y-2">
                   <Label>تفاصيل الإنجاز</Label>
-                  <Textarea placeholder="اكتب تفاصيل الإنجاز اليومي..." className="min-h-[180px]" value={details} onChange={(e) => setDetails(e.target.value)} />
+                  <Textarea placeholder="اكتب تفاصيل الإنجاز الأسبوعي..." className="min-h-[180px]" value={details} onChange={(e) => setDetails(e.target.value)} />
                 </div>
                 <div className="space-y-2">
                   <Label>مستوى الأولوية</Label>
@@ -122,7 +122,7 @@ export default function DailyReportForm() {
                   <Checkbox checked={isUrgent} onCheckedChange={setIsUrgent} />
                   <Label className="text-red-700 font-bold text-lg">هل المهمة عاجلة؟</Label>
                 </div>
-                <Button type="submit" className="w-full h-14 text-lg rounded-2xl bg-blue-900 hover:bg-blue-800">إرسال التقرير اليومي</Button>
+                <Button type="submit" className="w-full h-14 text-lg rounded-2xl bg-blue-900 hover:bg-blue-800">إرسال التقرير الأسبوعي</Button>
               </form>
             </CardContent>
           </Card>
