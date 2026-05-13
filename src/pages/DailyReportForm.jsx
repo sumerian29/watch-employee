@@ -72,9 +72,7 @@ export default function DailyReportForm() {
                     <p className="text-slate-200 text-sm">مرحباً {employeeName} (رقم {employeeId})</p>
                   </div>
                 </div>
-                <Badge className="bg-white text-blue-900 text-sm px-4 py-1">
-                  Integrated Safety & Risk Management - Advanced
-                </Badge>
+                {/* تم حذف العبارة الإنجليزية */}
               </div>
             </CardHeader>
             <CardContent className="p-8">
