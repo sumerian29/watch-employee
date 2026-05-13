@@ -6,7 +6,6 @@ import { toast } from "sonner";
 export default function Dashboard() {
   const [reports, setReports] = useState([]);
 
-  // جلب التقارير
   const fetchReports = async () => {
     const q = query(collection(db, "daily_reports"), orderBy("createdAt", "desc"));
     const snapshot = await getDocs(q);
@@ -18,7 +17,6 @@ export default function Dashboard() {
     fetchReports();
   }, []);
 
-  // دالة حذف التقرير
   const handleDelete = async (id) => {
     if (window.confirm("هل أنت متأكد من حذف هذا التقرير؟")) {
       await deleteDoc(doc(db, "daily_reports", id));
@@ -27,37 +25,31 @@ export default function Dashboard() {
     }
   };
 
-  // دالة طباعة
-  const handlePrint = () => {
-    window.print();
-  };
-
-  // تسجيل الخروج
+  const handlePrint = () => window.print();
   const handleLogout = () => {
     sessionStorage.removeItem("adminAuth");
     window.location.href = "/admin-login";
   };
 
   return (
-    <div dir="rtl" className="min-h-screen bg-slate-100 p-8">
-      {/* رأس الصفحة مع الشعار */}
-      <div className="flex justify-between items-center mb-6">
+    <div dir="rtl" className="min-h-screen bg-slate-100 p-8 flex flex-col">
+      <div className="flex justify-between items-center mb-6 flex-wrap">
         <div className="flex items-center gap-4">
           <img src="/logo.png" alt="Thi Qar Oil Company" className="w-16 h-16 object-contain bg-white rounded-full p-1 shadow" />
           <h1 className="text-3xl font-bold text-blue-900">لوحة مسؤول الجودة - التقارير اليومية</h1>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-2 sm:mt-0">
           <button onClick={handlePrint} className="bg-green-700 text-white px-4 py-2 rounded-lg">🖨️ طباعة</button>
           <button onClick={handleLogout} className="bg-red-700 text-white px-4 py-2 rounded-lg">🚪 تسجيل خروج</button>
         </div>
       </div>
 
-      {/* جدول التقارير */}
       <div className="bg-white rounded-2xl shadow-xl overflow-x-auto">
         <table className="w-full text-right border-collapse">
           <thead className="bg-blue-900 text-white">
             <tr>
               <th className="p-4">اسم الموظف</th>
+              <th className="p-4">رقم الموظف</th>
               <th className="p-4">القسم</th>
               <th className="p-4">عنوان المهمة</th>
               <th className="p-4">نسبة الإنجاز</th>
@@ -71,6 +63,7 @@ export default function Dashboard() {
             {reports.map((report) => (
               <tr key={report.id} className="border-b hover:bg-slate-50">
                 <td className="p-4">{report.employeeName}</td>
+                <td className="p-4">{report.employeeId}</td>
                 <td className="p-4">{report.department}</td>
                 <td className="p-4">{report.taskTitle}</td>
                 <td className="p-4 font-bold text-green-700">{report.completion}%</td>
@@ -84,6 +77,11 @@ export default function Dashboard() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* التذييل الأسود السميك */}
+      <div className="text-center font-bold text-black text-sm border-t pt-4 mt-8">
+        تصميم وتطوير الواجهة : رئيس مهندسين أقدم طارق مجيد عبد محمود
       </div>
     </div>
   );

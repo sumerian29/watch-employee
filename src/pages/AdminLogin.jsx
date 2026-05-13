@@ -8,7 +8,7 @@ export default function AdminLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const adminPassword = "admin456"; // غيّرها حسب رغبتك
+    const adminPassword = "admin456";
     if (password === adminPassword) {
       sessionStorage.setItem("adminAuth", "true");
       navigate("/admin");
@@ -18,7 +18,7 @@ export default function AdminLogin() {
   };
 
   return (
-    <div dir="rtl" className="min-h-screen bg-slate-200 flex items-center justify-center p-6">
+    <div dir="rtl" className="min-h-screen bg-slate-200 flex flex-col items-center justify-center p-6">
       <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full">
         <h2 className="text-2xl font-bold text-center text-green-900 mb-6">دخول مدير الجودة</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -30,18 +30,18 @@ export default function AdminLogin() {
               onChange={(e) => setPassword(e.target.value)}
               className="w-full p-3 border rounded-xl"
               placeholder="أدخل كلمة المرور"
-              dir="ltr"
+              required
             />
           </div>
           {error && <p className="text-red-600 text-sm">{error}</p>}
           <button type="submit" className="w-full bg-green-900 text-white py-3 rounded-xl">دخول</button>
         </form>
-
-        {/* إضافة شهادة ISO */}
         <div className="mt-6 text-center">
           <img src="/iso-certificate.jpg" alt="ISO 9001:2015" className="mx-auto w-56 border rounded shadow" />
-          <p className="text-xs text-gray-500 mt-2">شهادة الجودة المعتمدة</p>
         </div>
+      </div>
+      <div className="mt-8 text-center font-bold text-black text-sm border-t pt-4 w-full max-w-md">
+        تصميم وتطوير الواجهة : رئيس مهندسين أقدم طارق مجيد عبد محمود
       </div>
     </div>
   );
