@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function EmployeeLogin() {
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const employeePassword = 'emp123';
+    const employeePassword = "emp123"; // غيّرها حسب رغبتك
     if (password === employeePassword) {
-      sessionStorage.setItem('employeeAuth', 'true');
-      navigate('/employee');
+      sessionStorage.setItem("employeeAuth", "true");
+      navigate("/employee");
     } else {
-      setError('كلمة المرور غير صحيحة للموظفين');
+      setError("كلمة المرور غير صحيحة للموظفين");
     }
   };
 
@@ -36,6 +36,12 @@ export default function EmployeeLogin() {
           {error && <p className="text-red-600 text-sm">{error}</p>}
           <button type="submit" className="w-full bg-blue-900 text-white py-3 rounded-xl">دخول</button>
         </form>
+
+        {/* إضافة شهادة ISO */}
+        <div className="mt-6 text-center">
+          <img src="/iso-certificate.jpg" alt="ISO 9001:2015" className="mx-auto w-56 border rounded shadow" />
+          <p className="text-xs text-gray-500 mt-2">شهادة الجودة المعتمدة</p>
+        </div>
       </div>
     </div>
   );
